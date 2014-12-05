@@ -5,9 +5,9 @@ class Iulib < Formula
   url 'https://iulib.googlecode.com/files/iulib-0.4.tgz'
   sha1 '96a006f806a650886fdd59b1239f6e56d1a864c1'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "libpng"
   depends_on "jpeg"
   depends_on "libtiff"
