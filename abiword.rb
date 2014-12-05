@@ -10,7 +10,7 @@ class Abiword < Formula
     sha1 '67cfbc633129128a1aa48ffba8959229cef2ebdd'
   end
 
-  depends_on :libpng
+  depends_on 'libpng'
   depends_on 'jpeg'
   depends_on 'fribidi'
   depends_on 'libgsf'
