@@ -1,6 +1,4 @@
-Homebrew-boneyard
-=================
-
+# Homebrew Boneyard
 This repository contains formulae that were removed from other repositories.
 Common reasons for retiring formulae to the boneyard include lack of upstream
 maintenance or problems integrating with Homebrew's packaging requirements.
@@ -13,20 +11,16 @@ repository.
 
 Welcome to the boneyard, perhaps you can dig up something interesting!
 
-How do I install these formulae?
---------------------------------
-Just `brew tap homebrew/boneyard` and then `brew install <formula>`.
+## How do I install these formulae?
+`brew install homebrew/boneyard/<formula>`
 
-If the formula conflicts with one from Homebrew/homebrew or another tap, you can `brew install homebrew/boneyard/<formula>`.
+Or `brew tap homebrew/boneyard` and then `brew install <formula>`.
 
-You can also install via URL:
+Or install via URL (which will not receive updates):
 
 ```
 brew install https://raw.githubusercontent.com/Homebrew/homebrew-boneyard/master/<formula>.rb
 ```
 
-Docs
-----
-`brew help`, `man brew`, or the Homebrew [wiki][].
-
-[wiki]:http://wiki.github.com/Homebrew/homebrew
+## Documentation
+`brew help`, `man brew` or check [Homebrew's documentation](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme).
