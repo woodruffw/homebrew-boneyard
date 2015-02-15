@@ -3,12 +3,6 @@ class Pulse < Formula
   url "https://source.ind.ie/project/pulse.git", :tag => "0.1.4"
   head "https://source.ind.ie/project/pulse.git"
 
-  bottle do
-    sha1 "4d6954c4467e73a6fc341b6321fd063a3ed96b4d" => :yosemite
-    sha1 "afe5f7172c2d83529c9c922ef173b6fc85f59456" => :mavericks
-    sha1 "e2a0f268ad9a5fe754a7c9f1afa9b0a36603b9dd" => :mountain_lion
-  end
-
   depends_on "go" => :build
   depends_on :hg => :build
 
