@@ -374,7 +374,7 @@ end
 opoo <<-EOS.undent
   brew services is unsupported and will be removed soon.
   You should use launchctl instead.
-  Please feel free volunteer to support it in a tap.
+  Please feel free to volunteer to support it in a tap.
 
 EOS
 

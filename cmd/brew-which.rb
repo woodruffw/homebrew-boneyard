@@ -9,7 +9,7 @@ module Homebrew
       To query other formula information see:
         https://github.com/Homebrew/homebrew/wiki/Querying-Brew
 
-      Please feel free volunteer to support it in a tap.
+      Please feel free to volunteer to support it in a tap.
 
     EOS
 

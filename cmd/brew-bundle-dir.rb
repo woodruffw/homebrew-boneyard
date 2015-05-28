@@ -46,7 +46,7 @@ end
 
 opoo <<-EOS.undent
   brew bundle-dir is unsupported and will be removed soon.
-  Please feel free volunteer to support it in a tap.
+  Please feel free to volunteer to support it in a tap.
 
 EOS
 
