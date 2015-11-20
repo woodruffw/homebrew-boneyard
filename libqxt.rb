@@ -3,13 +3,6 @@ class Libqxt < Formula
   url "http://dev.libqxt.org/libqxt/get/v0.6.2.tar.gz"
   sha1 "e72a115895d6469972d3f1464bebeab72c497244"
 
-  bottle do
-    revision 1
-    sha1 "9067b8aa2d91ea0fd4093db5d7fe95accf51ba41" => :yosemite
-    sha1 "6e85849128742e9d76536453fc4f2df435f1e0f2" => :mavericks
-    sha1 "14ce9bb17e24f36a53745d5bd4c1b0341fb76e51" => :mountain_lion
-  end
-
   # As of 26/07/2014 this formula is no longer maintained upstream.
   # http://dev.libqxt.org/libqxt/wiki/commits/7e7a0ad676e649bf6f64a2cad1ea6dd204fb766c
   depends_on "qt"

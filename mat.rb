@@ -1,6 +1,4 @@
-require "formula"
-
-# FIXME this can be removed on the next release
+# FIXME: this can be removed on the next release
 # OSX has case-insensitive file names, and the Mat archive contains a "MAT"
 # directory *and* a "mat" file. `tar xf` will fail on it, so we rename "mat"
 # into "mat-cli" here.
@@ -16,13 +14,6 @@ class Mat < Formula
   homepage "https://mat.boum.org/"
   url "https://mat.boum.org/files/mat-0.5.2.tar.xz", :using => MatDownloadStrategy
   sha1 "932ac13863c994ca8874e3271f817efd879e28c3"
-
-  bottle do
-    cellar :any
-    sha1 "3476e92b91bddb20d386c35c997662fe08805da6" => :yosemite
-    sha1 "2f30838e07c7c342c01afa3a7faaa5cde129b4ab" => :mavericks
-    sha1 "810fe4dfe335c5dc8331734b1ea9abbe207b446d" => :mountain_lion
-  end
 
   depends_on :python => :optional
   depends_on "coreutils"
@@ -71,9 +62,9 @@ class Mat < Formula
     %w[hachoir-core hachoir-parser pdfrw distutils-extra].each do |r|
       resource(r).stage do
         pyargs = ["setup.py", "install", "--prefix=#{libexec}"]
-          unless %w[hachoir-core hachoir-parser pdfrw].include? r
-            pyargs << "--single-version-externally-managed" << "--record=installed.txt"
-          end
+        unless %w[hachoir-core hachoir-parser pdfrw].include? r
+          pyargs << "--single-version-externally-managed" << "--record=installed.txt"
+        end
         system "python", *pyargs
       end
     end
