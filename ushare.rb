@@ -1,34 +1,33 @@
-require 'formula'
-
 class Ushare < Formula
-  homepage 'http://ushare.geexbox.org/'
-  url 'http://ushare.geexbox.org/releases/ushare-1.1a.tar.bz2'
-  sha1 '1539e83cde5d80f433d262d971f5fe78486c9375'
+  desc "Free UPnP A/V & DLNA Media Server"
+  homepage "http://ushare.geexbox.org/"
+  url "http://ushare.geexbox.org/releases/ushare-1.1a.tar.bz2"
+  sha256 "7b9b85c79968d4f4560f02a99e33c6a33ff58f9d41d8faea79e31cce2ee78665"
 
-  depends_on 'pkg-config' => :build
-  depends_on 'gettext'
-  depends_on 'libupnp'
-  depends_on 'libdlna'
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
+  depends_on "libupnp"
+  depends_on "libdlna"
 
   # Fix compilation with newer libupnp
   patch :DATA
 
   def install
-    ENV.append 'CFLAGS', '-std=gnu89'
+    ENV.append "CFLAGS", "-std=gnu89"
 
     # Need to explicitly add intl and gettext here.
     gettext = Formula["gettext"]
-    ENV.append 'CFLAGS', "-I#{gettext.include}"
-    ENV.append 'LDFLAGS', "-lintl"
+    ENV.append "CFLAGS", "-I#{gettext.include}"
+    ENV.append "LDFLAGS", "-lintl"
 
-    inreplace 'configure', /config.h/, 'src/config.h'
+    inreplace "configure", /config.h/, "src/config.h"
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--enable-dlna",
                           "--with-libupnp-dir=#{HOMEBREW_PREFIX}",
                           "--with-libdlna-dir=#{HOMEBREW_PREFIX}",
                           "--disable-strip"
-    system "make install"
+    system "make", "install"
     man1.install "src/ushare.1"
   end
 end
