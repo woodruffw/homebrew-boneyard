@@ -1,10 +1,9 @@
-require "formula"
-
 class Texmacs < Formula
+  desc "Free WYSIWYW editing platform for scientists"
   homepage "http://www.texmacs.org"
-  head "svn://svn.savannah.gnu.org/texmacs/trunk/src"
   url "http://www.texmacs.org/Download/ftp/tmftp/source/TeXmacs-1.99.1-src.tar.gz"
-  sha1 "a5c7171644c84866445334b2d0cb39a6d9dd5f54"
+  sha256 "7e8425d65b1a02f270eaa021389cb9c3f627c9064cc986bd1ec7f66e0681b2ac"
+  head "svn://svn.savannah.gnu.org/texmacs/trunk/src"
 
   depends_on "qt"
   depends_on "guile"
