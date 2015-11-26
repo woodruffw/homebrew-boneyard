@@ -1,5 +1,3 @@
-require 'formula'
-
 class CurlXZDownloadStrategy < CurlDownloadStrategy
   def stage
     # As far as I can tell, the LZMA format does not have any magic header bits that we could use to
@@ -7,31 +5,32 @@ class CurlXZDownloadStrategy < CurlDownloadStrategy
     safe_system "lzma -k --force --stdout --decompress #{@tarball_path} | /usr/bin/tar x"
 
     # You could also do this, but it leaves the tar file lying around...
-    #safe_system '/usr/local/bin/lzma', '-k', '--force', '--decompress', @tarball_path
-    #safe_system '/usr/bin/tar', 'xf', @tarball_path.to_s.gsub( ".lzma", "" )
+    # safe_system '/usr/local/bin/lzma', '-k', '--force', '--decompress', @tarball_path
+    # safe_system '/usr/bin/tar', 'xf', @tarball_path.to_s.gsub( ".lzma", "" )
     chdir
   end
 end
 
 class TexLive < Formula
+  desc "Easy way to get up and running with TeX"
+  homepage "http://www.tug.org/texlive/"
   # OpenBSD mirrors are slower but more reliable
   url "ftp://tug.org/texlive/historic/2008/texlive-20080816-source.tar.lzma",
     :using => CurlXZDownloadStrategy
-  homepage 'http://www.tug.org/texlive/'
-  sha256 '60cf277a60311756ea51ed7e6c50b50d4069f4b4c007b11c114ca5c640e5a3c2'
+  sha256 "60cf277a60311756ea51ed7e6c50b50d4069f4b4c007b11c114ca5c640e5a3c2"
 
-  depends_on 'xz' => :build
-  depends_on 'gd'
+  depends_on "xz" => :build
+  depends_on "gd"
   depends_on :x11
 
   fails_with :llvm
 
   env :std
 
-  resource 'texmf' do
-    url 'ftp://tug.org/texlive/historic/2008/texlive-20080822-texmf.tar.lzma',
+  resource "texmf" do
+    url "ftp://tug.org/texlive/historic/2008/texlive-20080822-texmf.tar.lzma",
       :using => CurlXZDownloadStrategy
-    sha256 '112da34afd287340188ce73261ca4e57ea0242c3056f7a4b8a6094a063c54df3'
+    sha256 "112da34afd287340188ce73261ca4e57ea0242c3056f7a4b8a6094a063c54df3"
   end
 
   def patches
@@ -42,7 +41,7 @@ class TexLive < Formula
       "libs_graphite-engine_configure?rev=1.1",
       "libs_icu-xetex_Makefile_in?rev=1.2",
       # Hijacked: we needed to add a CFLAG to the patch, so I merged this and my change below
-      #{}"libs_lua51_Makefile",
+      # {}"libs_lua51_Makefile",
       "libs_lua51_lcoco_c?rev=1.1",
       "libs_lua51_lcoco_h?rev=1.1",
       "texk_afm2pl_Makefile_in?rev=1.2",
@@ -60,7 +59,7 @@ class TexLive < Formula
       "texk_gsftopk_Makefile_in?rev=1.2",
       "texk_kpathsea_Makefile_in?rev=1.2",
       # Replaced with some ruby code below, we need a different approach
-      #"texk_kpathsea_texmf_cnf?rev=1.1",
+      # "texk_kpathsea_texmf_cnf?rev=1.1",
       "texk_lacheck_Makefile_in?rev=1.2",
       "texk_make_man_mk?rev=1.2",
       "texk_makeindexk_Makefile_in?rev=1.2",
@@ -86,8 +85,8 @@ class TexLive < Formula
       "texk_xdvipdfmx_Makefile_in?rev=1.1",
       "texk_xdvipdfmx_configure?rev=1.1",
       "utils_dialog_Makefile_in?rev=1.3",
-      "utils_tpic2pdftex_Makefile_in?rev=1.1"
-    ].collect! {|middle| "http://www.openbsd.org/cgi-bin/cvsweb/ports/print/texlive/base/patches/patch-#{middle};content-type=text%2Fplain"}
+      "utils_tpic2pdftex_Makefile_in?rev=1.1",
+    ].collect! { |middle| "http://www.openbsd.org/cgi-bin/cvsweb/ports/print/texlive/base/patches/patch-#{middle};content-type=text%2Fplain" }
     # Putting DATA in p0 seemed to cause trouble, so we put nonsense in the filenames and put it in p1
     { :p0 => patches, :p1 => DATA }
   end
@@ -99,10 +98,10 @@ class TexLive < Formula
     ENV.m32
     ENV.deparallelize
 
-    #Some of the makefiles doesn't use CFLAGS during linking, which causes things to break when building as 32bit.
+    # Some of the makefiles doesn't use CFLAGS during linking, which causes things to break when building as 32bit.
     # Ugly hack to force -m32 always and forever.
-    ENV['CC']="gcc-4.2 -m32 -arch i386"
-    ENV['CXX']="g++-4.2 -m32 -arch i386"
+    ENV["CC"]="gcc-4.2 -m32 -arch i386"
+    ENV["CXX"]="g++-4.2 -m32 -arch i386"
     # I even had to patch a Makefile since it hardcoded using cc and c++, see below.
 
     x11_libdir = MacOS::X11.lib
@@ -116,20 +115,30 @@ class TexLive < Formula
     # Replaces the texk_kpathsea_texmf_cnf OpenBSD patch with our own version
     inreplace "texk/kpathsea/texmf.cnf", "$SELFAUTOPARENT/", "#{share}/"
 
-    build_dir='Work'
-
-    mkdir build_dir do
-      system "../configure", "--prefix=#{prefix}/", "--datadir=#{prefix}/", \
-      "--with-xdvi-x-toolkit=xaw", "--disable-threads", "--with-old-mac-fonts", "--without-xindy", \
-      "--x-libraries=#{x11_libdir}", "--x-includes=#{x11_includedir}", \
-      "--with-freetype2-libdir=#{x11_libdir}", "--with-freetype2-include=#{x11_includedir}", \
-      "--with-pnglib-libdir=#{x11_libdir}", "--with-pnglib-include=#{x11_includedir}", \
-      "--with-system-ncurses", "--with-system-freetype2", "--with-system-pnglib", \
-      "--with-system-zlib", "--with-system-gd", \
-      "--disable-multiplatform", "--without-texinfo", "--without-xdvipdfmx", \
-      "--without-texi2html", "--without-psutils"
-
-      system "make world"
+    mkdir "Work" do
+      system "../configure", "--prefix=#{prefix}/",
+                             "--datadir=#{prefix}/",
+                             "--with-xdvi-x-toolkit=xaw",
+                             "--disable-threads",
+                             "--with-old-mac-fonts",
+                             "--without-xindy",
+                             "--x-libraries=#{x11_libdir}",
+                             "--x-includes=#{x11_includedir}",
+                             "--with-freetype2-libdir=#{x11_libdir}",
+                             "--with-freetype2-include=#{x11_includedir}",
+                             "--with-pnglib-libdir=#{x11_libdir}",
+                             "--with-pnglib-include=#{x11_includedir}",
+                             "--with-system-ncurses",
+                             "--with-system-freetype2",
+                             "--with-system-pnglib",
+                             "--with-system-zlib",
+                             "--with-system-gd",
+                             "--disable-multiplatform",
+                             "--without-texinfo",
+                             "--without-xdvipdfmx",
+                             "--without-texi2html",
+                             "--without-psutils"
+      system "make", "world"
     end
 
     # Installs texmf, which has necessary support files for tex-live
@@ -137,13 +146,15 @@ class TexLive < Formula
       # Update a conf file to use the proper directories, replaces OpenBSD patch
       # Yes, this file exists in both tex-live and texmf. With this change they're identical, though.
       inreplace "texmf/web2c/texmf.cnf", "$SELFAUTOPARENT/", "#{share}/"
-      share.install Dir['*']
+      share.install Dir["*"]
     end
 
+    ENV.append_path "PATH", bin
+
     # The texlive makefiles are supposed to do this, I don't know why they don't...
-    #We need this ugly path hack because texlinks and fmtutil-sys call other scripts in bin
-    system "PATH=$PATH:#{bin} texlinks -f #{share}/texmf/web2c/fmtutil.cnf"
-    system "PATH=$PATH:#{bin} fmtutil-sys --all"
+    # We need this ugly path hack because texlinks and fmtutil-sys call other scripts in bin
+    system "texlinks", "-f", "#{share}/texmf/web2c/fmtutil.cnf"
+    system "fmtutil-sys", "--all"
   end
 end
 
