@@ -1,6 +1,7 @@
 class ShellFm < Formula
-  url "https://github.com/jkramer/shell-fm/archive/v0.8.tar.gz"
+  desc "Console-based radio player for Last.FM radio streams"
   homepage "http://nex.scrapping.cc/shell-fm/"
+  url "https://github.com/jkramer/shell-fm/archive/v0.8.tar.gz"
   sha256 "e640b614f733a61f281cffe300a4f2419e0968f8f5592d2059dd51d0e430eab0"
   head "https://github.com/jkramer/shell-fm.git"
 
