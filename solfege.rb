@@ -1,21 +1,20 @@
-require 'formula'
-
 class Solfege < Formula
-  homepage 'http://www.solfege.org/'
-  url 'http://ftpmirror.gnu.org/solfege/solfege-3.20.6.tar.xz'
-  mirror 'http://ftp.gnu.org/gnu/solfege/solfege-3.20.6.tar.xz'
-  sha1 '0b83f351e90aeb9267f76d8dda0638dc50682226'
+  desc "Ear training software"
+  homepage "https://www.gnu.org/software/solfege/"
+  url "http://ftpmirror.gnu.org/solfege/solfege-3.20.6.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/solfege/solfege-3.20.6.tar.xz"
+  sha256 "f84b336ae7e24ce2472cd50df178061df4ad76f785540b926dc097d680622730"
 
-  depends_on 'pkg-config' => :build
-  depends_on 'gettext'      => :build
-  depends_on 'pygtk'        => :recommended
-  depends_on 'qtplay'       => :recommended
-  depends_on 'librsvg'      => :recommended
-  depends_on 'vorbis-tools' => :recommended
+  depends_on "pkg-config" => :build
+  depends_on "gettext"      => :build
+  depends_on "pygtk"        => :recommended
+  depends_on "qtplay"       => :recommended
+  depends_on "librsvg"      => :recommended
+  depends_on "vorbis-tools" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system 'make install'
+    system "make", "install"
   end
 
   def caveats
