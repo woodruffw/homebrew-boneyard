@@ -1,7 +1,8 @@
 class Sitecopy < Formula
+  desc "Remote websites maintainance"
   homepage "http://www.manyfish.co.uk/sitecopy/"
   url "http://www.manyfish.co.uk/sitecopy/sitecopy-0.16.6.tar.gz"
-  sha1 "2de3679d98c31331f48ff10e824c615a180f2d3b"
+  sha256 "e06fdda007e54ddc6fae90a4e79768e5bfb7770c1139bcaac2e10d841d7458af"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
