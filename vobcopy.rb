@@ -1,13 +1,11 @@
-require 'formula'
-
 class Vobcopy < Formula
   desc "Copy DVD .vob files to hard disk"
-  homepage 'http://vobcopy.org'
-  url 'http://vobcopy.org/download/vobcopy-1.2.0.tar.bz2'
-  sha1 'a848a777f0e477d42a20a52718599d5da00c36db'
+  homepage "http://vobcopy.org"
+  url "http://vobcopy.org/download/vobcopy-1.2.0.tar.bz2"
+  sha256 "892504d195d06a80ab283db642eb2ccbf9f1dc6ba5ff0fdfcf7a9cb660f48106"
 
-  depends_on 'libdvdread'
-  depends_on 'libdvdcss'
+  depends_on "libdvdread"
+  depends_on "libdvdcss"
 
   def install
     system "./configure.sh", "--prefix=#{prefix}",
@@ -15,6 +13,6 @@ class Vobcopy < Formula
                              "--with-lfs",
                              "--with-dvdread-libs=#{HOMEBREW_PREFIX}"
     system "make"
-    system "make install"
+    system "make", "install"
   end
 end
