@@ -1,9 +1,7 @@
-require 'formula'
-
 class Jscoverage < Formula
-  homepage 'http://siliconforks.com/jscoverage/'
-  url 'http://siliconforks.com/jscoverage/download/jscoverage-0.5.1.tar.bz2'
-  sha1 '0d655296b593beb15c2261d97df314572ebd7319'
+  homepage "http://siliconforks.com/jscoverage/"
+  url "http://siliconforks.com/jscoverage/download/jscoverage-0.5.1.tar.bz2"
+  sha256 "c45f051cec18c10352f15f9844f47e37e8d121d5fd16680e2dd0f3b4420eb7f4"
 
   # Fixes compile errors with clang, int main should return a value
   # Reported upstream: http://siliconforks.com/jscoverage/bugs/42
@@ -12,18 +10,18 @@ class Jscoverage < Formula
   def install
     # Fix a hardcoded gcc and g++ configure error when clang.
     # Reported upstream: http://siliconforks.com/jscoverage/bugs/42
-    inreplace 'js/configure.gnu' do |f|
-      f.gsub! 'export CC=gcc', "export CC=#{ENV.cc}"
-      f.gsub! 'export CXX=g++', "export CXX=#{ENV.cxx}"
-      f.gsub! 'gcc -E', "#{ENV.cc} -E"
-      f.gsub! 'g++ -E', "#{ENV.cxx} -E"
+    inreplace "js/configure.gnu" do |f|
+      f.gsub! "export CC=gcc", "export CC=#{ENV.cc}"
+      f.gsub! "export CXX=g++", "export CXX=#{ENV.cxx}"
+      f.gsub! "gcc -E", "#{ENV.cc} -E"
+      f.gsub! "g++ -E", "#{ENV.cxx} -E"
     end
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
-    bin.install('jscoverage');
-    bin.install('jscoverage-server');
+    bin.install("jscoverage")
+    bin.install("jscoverage-server")
   end
 end
 

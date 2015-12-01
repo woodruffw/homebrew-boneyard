@@ -1,12 +1,12 @@
-require 'formula'
+require "formula"
 
 class Graylog2Server < Formula
-  homepage 'http://www.graylog2.org/'
-  url 'http://download.graylog2.org/graylog2-server/graylog2-server-0.11.0.tar.gz'
-  sha1 '03c94ce8f255a486d13b38c9ebad159588b30bef'
+  homepage "http://www.graylog2.org/"
+  url "http://download.graylog2.org/graylog2-server/graylog2-server-0.11.0.tar.gz"
+  sha1 "03c94ce8f255a486d13b38c9ebad159588b30bef"
 
-  depends_on 'elasticsearch'
-  depends_on 'mongodb'
+  depends_on "elasticsearch"
+  depends_on "mongodb"
 
   def install
     mv "graylog2.conf.example", "graylog2.conf"
@@ -25,7 +25,7 @@ class Graylog2Server < Formula
     end
 
     etc.install "graylog2.conf"
-    prefix.install Dir['*']
+    prefix.install Dir["*"]
   end
 
   def caveats; <<-EOS.undent

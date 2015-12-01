@@ -1,9 +1,7 @@
-require 'formula'
-
 class Denyhosts < Formula
-  homepage 'http://denyhosts.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/denyhosts/denyhosts/2.6/DenyHosts-2.6.tar.gz'
-  sha1 '02143843cb7c37c986c222b7acc11f7b75eb7373'
+  homepage "http://denyhosts.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/denyhosts/denyhosts/2.6/DenyHosts-2.6.tar.gz"
+  sha256 "5190ead13a7238e3ccf328cb3b71b16716e1c73939909a4f3fa6904ba58ddf7d"
 
   depends_on :python
 
@@ -13,21 +11,21 @@ class Denyhosts < Formula
   def install
     # If the `libpath` is relative, instead of absolute, we can influence the
     # 'data path' via command line arguments to `setup.py`.
-    inreplace 'setup.py' do |s|
-      s.change_make_var! 'libpath', "''"
-      s.change_make_var! 'scriptspath', "''"
-      s.change_make_var! 'pluginspath', "''"
+    inreplace "setup.py" do |s|
+      s.change_make_var! "libpath", "''"
+      s.change_make_var! "scriptspath", "''"
+      s.change_make_var! "pluginspath", "''"
     end
 
     # Make it so that all DenyHosts tools have a default path that points at
     # our config file.
-    inreplace 'DenyHosts/constants.py' do |s|
-      s.change_make_var! 'CONFIG_FILE', "'#{etc}/denyhosts.cfg'"
+    inreplace "DenyHosts/constants.py" do |s|
+      s.change_make_var! "CONFIG_FILE", "'#{etc}/denyhosts.cfg'"
     end
 
     unless MacOS.mountain_lion_or_newer?
-      inreplace 'denyhosts.cfg' do |s|
-        s.gsub! %r{^SECURE_LOG\s*=\s*/private/var/log/system\.log}, 'SECURE_LOG = /private/var/log/secure.log'
+      inreplace "denyhosts.cfg" do |s|
+        s.gsub! %r{^SECURE_LOG\s*=\s*/private/var/log/system\.log}, "SECURE_LOG = /private/var/log/secure.log"
       end
     end
 
@@ -38,14 +36,14 @@ class Denyhosts < Formula
                                  "--install-scripts=#{bin}",
                                  "--install-data=#{libexec}"
     end
-    libexec.install 'daemon-control'
-    (libexec+'daemon-control').chmod 0755
+    libexec.install "daemon-control"
+    (libexec+"daemon-control").chmod 0755
 
     # Don't overwrite the config file; the user may have tweaked it.
-    etc.install 'denyhosts.cfg'
+    etc.install "denyhosts.cfg"
 
-    sbin.install_symlink libexec+'daemon-control'
-    sbin.install_symlink libexec+'denyhosts.py' => 'denyhosts'
+    sbin.install_symlink libexec+"daemon-control"
+    sbin.install_symlink libexec+"denyhosts.py" => "denyhosts"
   end
 
   plist_options :startup => true

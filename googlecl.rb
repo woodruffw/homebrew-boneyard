@@ -2,7 +2,7 @@ class Googlecl < Formula
   desc "Manage Google services from the command-line"
   homepage "https://code.google.com/p/googlecl/"
   url "https://googlecl.googlecode.com/files/googlecl-0.9.14.tar.gz"
-  sha1 "810b2426e2c5e5292e507837ea425e66f4949a1d"
+  sha256 "0a4640b1240104b8020f9af526e24afe53a8327390d95ef28e1ca093673fce5a"
 
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -10,7 +10,7 @@ class Googlecl < Formula
 
   resource "gdata" do
     url "https://pypi.python.org/packages/source/g/gdata/gdata-2.0.18.tar.gz"
-    sha1 "4cd6804f2af81697219307421996c6055c7c16e4"
+    sha256 "56e7d22de819c22b13ceb0fe1869729b4287f89ebbd4bb55380d7bcf61a1fdb6"
   end
 
   def install

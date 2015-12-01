@@ -1,7 +1,7 @@
 class PyenvPipRehash < Formula
   homepage "https://github.com/yyuu/pyenv-pip-rehash"
   url "https://github.com/yyuu/pyenv-pip-rehash/archive/v0.0.4.tar.gz"
-  sha1 "afbce380b888c987138f28d33fe1ba5a38cdb41a"
+  sha256 "ea61e859425d1330a6683dc2962f9974021381ca78871ab3a15c2cc442c00593"
 
   head "https://github.com/yyuu/pyenv-pip-rehash.git"
 
@@ -13,6 +13,6 @@ class PyenvPipRehash < Formula
   end
 
   test do
-    %x(pyenv hooks exec).include?("pip.bash")
+    `pyenv hooks exec`.include?("pip.bash")
   end
 end

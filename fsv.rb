@@ -1,5 +1,3 @@
-require "formula"
-
 class Fsv < Formula
   homepage "http://fsv.sourceforge.net/"
   url "https://github.com/mcuelenaere/fsv.git", :tag => "fsv-0.9-1"

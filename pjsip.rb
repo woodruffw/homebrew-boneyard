@@ -1,9 +1,7 @@
-require 'formula'
-
 class Pjsip < Formula
-  homepage 'http://www.pjsip.org'
-  url 'http://www.pjsip.org/release/2.1/pjproject-2.1.tar.bz2'
-  sha1 '244884fb900594104792c431946384e0fedc9560'
+  homepage "http://www.pjsip.org"
+  url "http://www.pjsip.org/release/2.1/pjproject-2.1.tar.bz2"
+  sha256 "ac86d2401e1cb4a4f0207e4fd58921f869d0b5ee65a26aa438039a107ba415a5"
 
   # 1. We aren't cross compiling
   #    pjsip thinks we are, this is fixed somewhere between revision 4305 and
@@ -16,7 +14,7 @@ class Pjsip < Formula
   def install
     ENV.j1
     system "./configure", "--prefix=#{prefix}"
-    Pathname('pjlib/include/pj/config_site.h').write <<-EOS.undent
+    Pathname("pjlib/include/pj/config_site.h").write <<-EOS.undent
       #define PJ_CONFIG_MAXIMUM_SPEED
       #include <pj/config_site_sample.h>
 

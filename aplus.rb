@@ -1,10 +1,8 @@
-require 'formula'
-
 class Aplus < Formula
-  homepage 'http://www.aplusdev.org/'
-  url 'http://mirrors.kernel.org/debian/pool/main/a/aplus-fsf/aplus-fsf_4.22.1.orig.tar.gz'
-  mirror 'http://ftp.us.debian.org/debian/pool/main/a/aplus-fsf/aplus-fsf_4.22.1.orig.tar.gz'
-  sha1 'e757cc7654cf35dba15a6a5d6cac5320146558fc'
+  homepage "http://www.aplusdev.org/"
+  url "https://mirrors.kernel.org/debian/pool/main/a/aplus-fsf/aplus-fsf_4.22.1.orig.tar.gz"
+  mirror "http://ftp.us.debian.org/debian/pool/main/a/aplus-fsf/aplus-fsf_4.22.1.orig.tar.gz"
+  sha256 "74c8bc1ac45941ba2f350d22b5beb1891e6e23996c609114b598ea84c9b2041f"
 
   depends_on :x11
 

@@ -1,12 +1,10 @@
-require 'formula'
-
 class Dupx < Formula
-  homepage 'http://www.isi.edu/~yuri/dupx/'
-  url 'http://www.isi.edu/~yuri/dupx/dupx-0.1.tar.gz'
-  sha1 '69cac2bacc9aefff59e84d5bfd053f01c1bc7551'
+  homepage "http://www.isi.edu/~yuri/dupx/"
+  url "http://www.isi.edu/~yuri/dupx/dupx-0.1.tar.gz"
+  sha256 "7837501162a6387320d1327ec61abc260c3b8c06c9985d41e1f0c3b52f9f9f41"
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end

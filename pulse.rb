@@ -12,12 +12,12 @@ class Pulse < Formula
 
     # FIXTHIS: do this without mutating the cache!
     hack_dir = cached_download/".gopath/src/source.ind.ie/project/"
-    rm_rf  hack_dir
+    rm_rf hack_dir
     mkdir_p hack_dir
     ln_s cached_download, "#{hack_dir}/pulse"
 
     system "./build.sh", "noupgrade"
-    prefix.install %w{ CONTRIBUTING.md LICENSE README.md }
+    prefix.install %w[ CONTRIBUTING.md LICENSE README.md ]
     bin.install "pulse"
   end
 

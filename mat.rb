@@ -13,7 +13,7 @@ class Mat < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://mat.boum.org/"
   url "https://mat.boum.org/files/mat-0.5.2.tar.xz", :using => MatDownloadStrategy
-  sha1 "932ac13863c994ca8874e3271f817efd879e28c3"
+  sha256 "93b850a733373b98965516a743f09de7a1a07a4d40597363517c0fe92c7df113"
 
   depends_on :python => :optional
   depends_on "coreutils"
@@ -32,27 +32,27 @@ class Mat < Formula
 
   resource "hachoir-core" do
     url "https://pypi.python.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"
-    sha1 "e1d3b5da7d57087c922942b7653cb3b195c7769f"
+    sha256 "ecf5d16eccc76b22071d6062e54edb67595f70d827644d3a6dff04289b4058df"
   end
 
   resource "hachoir-parser" do
     url "https://pypi.python.org/packages/source/h/hachoir-parser/hachoir-parser-1.3.4.tar.gz"
-    sha1 "8433e1598b1e8d9404e6978117a203775e68c075"
+    sha256 "775be5e10d72c6122b1ba3202dfce153c09ebcb60080d8edbd51aa89aa4e6b3f"
   end
 
   resource "pdfrw" do
     url "https://pypi.python.org/packages/source/p/pdfrw/pdfrw-0.1.tar.gz"
-    sha1 "9824ad502ecb2bf093fd8727fd7fa2b524140e41"
+    sha256 "8a85cb87b888c030d87cc3fce10ad93e5f99e721b80b99bf50e29a074c048f83"
   end
 
   resource "distutils-extra" do
     url "https://launchpad.net/python-distutils-extra/trunk/2.38/+download/python-distutils-extra-2.38.tar.gz"
-    sha1 "db9ac81daf3e069b8838ae6d379abac2f0094663"
+    sha256 "3d100d5d3492f40b3e7a6a4500f71290bfa91e2c50dc31ba8e3ff9b5d82ca153"
   end
 
   resource "mutagen" do
     url "https://pypi.python.org/packages/source/m/mutagen/mutagen-1.22.tar.gz"
-    sha1 "9bdd4a7a491008e62d140d83fc31d355577f94e7"
+    sha256 "a2ea5b5099ce14ab84c628e9d0a91217df20d2e3459a707f2eba9a354f52da91"
   end
 
   def install

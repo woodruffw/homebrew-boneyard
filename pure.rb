@@ -1,7 +1,7 @@
 class Pure < Formula
   homepage "http://purelang.bitbucket.org/"
   url "https://bitbucket.org/purelang/pure-lang/downloads/pure-0.64.tar.gz"
-  sha1 "738d25de30a20bbdd0722aeb923d6be9051b730f"
+  sha256 "efd55229342aec9d79e8fa4732a30f140e1773064f3869abde053e01468f7b07"
 
   needs :cxx11
 
@@ -12,7 +12,7 @@ class Pure < Formula
 
   resource "docs" do
     url "https://bitbucket.org/purelang/pure-lang/downloads/pure-docs-0.64.tar.gz"
-    sha1 "a7cea453195046621497be5ea1d33dce3cb677cc"
+    sha256 "a140456f7d6feff8a15f5505a8fa3f9376afef88f1831ca98b93dc1d1764d110"
   end
 
   def install

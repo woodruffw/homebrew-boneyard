@@ -16,7 +16,7 @@ class Celt < Formula
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make check"
-    system "make install"
+    system "make", "check"
+    system "make", "install"
   end
 end

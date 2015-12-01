@@ -1,9 +1,7 @@
-require "formula"
-
 class Authexec < Formula
   homepage "https://github.com/tcurdt/authexec"
   url "https://github.com/tcurdt/authexec/archive/1.0.tar.gz"
-  sha1 "73d8fb4202ae99057691788442bb192972ef304c"
+  sha256 "96e2e3479a22b367a402b38b66f7b67a8ce31dcf2aa2ee869f1d66b978831730"
 
   head "https://github.com/tcurdt/authexec.git"
 

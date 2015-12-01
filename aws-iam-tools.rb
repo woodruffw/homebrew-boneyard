@@ -1,9 +1,7 @@
-require 'formula'
-
 class AwsIamTools < AmazonWebServicesFormula
-  homepage 'http://aws.amazon.com/developertools/4143'
-  url 'http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip'
-  sha1 'a2bd3048327d1ee34e20abbc8e2cc6c68ebdee5f'
+  homepage "http://aws.amazon.com/developertools/4143"
+  url "http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip"
+  sha256 "eec2795e20c1ec4374ab9c395b63db2b85ba2a74b6468fa3424276152695f68d"
   version "1.5.0"
 
   def install

@@ -6,14 +6,14 @@ class Rocket < Formula
   head "https://github.com/coreos/rocket.git"
 
   url "https://github.com/coreos/rocket/archive/v0.1.0.tar.gz"
-  sha1 "04ae8cb9bac04eedacb03a7531e6b251556be653"
+  sha256 "594bfdf68efe7e675c12a2bcf19ae33bd22453375ede446256e4e892e0a228d0"
 
   depends_on "go" => :build
   depends_on "squashfs" => :build
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata/archive/v3.0.7.tar.gz"
-    sha1 "b348b4f39204a31a87fd396ea1418e2ef5b07e90"
+    sha256 "77a7214479e5ce9004e4afa6d0eb8ce14289030fadc55a3444249ab1fe2c7980"
   end
 
   def install

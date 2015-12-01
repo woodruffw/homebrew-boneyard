@@ -1,10 +1,10 @@
-require 'formula'
+require "formula"
 
 class Kismet < Formula
-  homepage 'http://www.kismetwireless.net'
-  url 'http://www.kismetwireless.net/code/kismet-2011-03-R2.tar.gz'
-  version '2011-03-R2'
-  sha256 '71a099fb724951cdd55c28e492432ca21657534c91a536c206f3e0a8686d2a64'
+  homepage "http://www.kismetwireless.net"
+  url "http://www.kismetwireless.net/code/kismet-2011-03-R2.tar.gz"
+  version "2011-03-R2"
+  sha256 "71a099fb724951cdd55c28e492432ca21657534c91a536c206f3e0a8686d2a64"
 
   # Strip -rdynamic, per MacPorts
   patch :p0 do

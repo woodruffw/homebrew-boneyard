@@ -1,7 +1,7 @@
 class GitFlowClone < Formula
   homepage "https://github.com/ashirazi/git-flow-clone"
   url "https://github.com/ashirazi/git-flow-clone/archive/0.1.2.tar.gz"
-  sha1 "d4d5c106ebd7de8abbee69f0b277ecdfe85e5b6d"
+  sha256 "e741d7add3c69ab4da0eddb40edc3f173f1a0cf349bc92131380c64c35eac9f7"
 
   def install
     system "make", "prefix=#{prefix}", "install"

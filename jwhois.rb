@@ -1,10 +1,8 @@
-require 'formula'
-
 class Jwhois < Formula
-  url 'http://ftpmirror.gnu.org/jwhois/jwhois-4.0.tar.gz'
-  mirror 'http://ftp.gnu.org/gnu/jwhois/jwhois-4.0.tar.gz'
-  homepage 'http://directory.fsf.org/project/jwhois/'
-  sha1 '4bd4a35cb0c2593284e7ef161f533a8184645174'
+  url "http://ftpmirror.gnu.org/jwhois/jwhois-4.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/jwhois/jwhois-4.0.tar.gz"
+  homepage "http://directory.fsf.org/project/jwhois/"
+  sha256 "fa9bb86782b915c6d730bb723f876dc9b345a617db375aaf3416ec22553cd64e"
 
   # No whois entry in /etc/services. Use nicname instead.
   patch :DATA
@@ -14,7 +12,7 @@ class Jwhois < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "LIBS=-liconv"
-    system "make install"
+    system "make", "install"
   end
 end
 

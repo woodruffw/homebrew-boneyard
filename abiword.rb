@@ -1,24 +1,22 @@
-require 'formula'
-
 class Abiword < Formula
-  homepage 'http://www.abisource.com/'
-  url 'http://www.abisource.com/downloads/abiword/2.8.6/source/abiword-2.8.6.tar.gz'
-  sha1 '998f69d038000b3fc027d4259548f02d67c8d0df'
+  homepage "http://www.abisource.com/"
+  url "http://www.abisource.com/downloads/abiword/2.8.6/source/abiword-2.8.6.tar.gz"
+  sha256 "d99089a63a6cfc1a6a4a026be9278028d47d224088d24b1853acb67e95683a15"
 
   devel do
-    url 'http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-2.9.4.tar.gz'
-    sha1 '67cfbc633129128a1aa48ffba8959229cef2ebdd'
+    url "http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-2.9.4.tar.gz"
+    sha256 "d06b731feb23cbe7b28f5a4afd875e013bfecf8482f7a8bead0afaf74370bbd4"
   end
 
-  depends_on 'libpng'
-  depends_on 'jpeg'
-  depends_on 'fribidi'
-  depends_on 'libgsf'
-  depends_on 'enchant'
-  depends_on 'cairo'
-  depends_on 'pango'
-  depends_on 'wv'
-  depends_on 'imagemagick'
+  depends_on "libpng"
+  depends_on "jpeg"
+  depends_on "fribidi"
+  depends_on "libgsf"
+  depends_on "enchant"
+  depends_on "cairo"
+  depends_on "pango"
+  depends_on "wv"
+  depends_on "imagemagick"
 
   fails_with :clang do
     build 421
@@ -30,14 +28,14 @@ class Abiword < Formula
       # Fixes newer libpng versions; needed for libpng 1.2, too
       :p0 => "https://trac.macports.org/export/102401/trunk/dports/editors/abiword-x11/files/patch-libpng-1.5.diff",
       # Fixes bad glib include
-      :p1 => DATA
+      :p1 => DATA,
     } if build.stable?
   end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
 

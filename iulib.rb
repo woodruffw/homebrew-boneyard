@@ -1,9 +1,7 @@
-require 'formula'
-
 class Iulib < Formula
-  homepage 'http://code.google.com/p/iulib/'
-  url 'https://iulib.googlecode.com/files/iulib-0.4.tgz'
-  sha1 '96a006f806a650886fdd59b1239f6e56d1a864c1'
+  homepage "https://code.google.com/p/iulib/"
+  url "https://iulib.googlecode.com/files/iulib-0.4.tgz"
+  sha256 "c70dab420f5ce0ff0185c922881576f4a82eacec3feb0befa66bd7468151d99b"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -18,7 +16,7 @@ class Iulib < Formula
     system "aclocal"
     system "./build", "--prefix=#{prefix}"
     system "make"
-    system "make install"
+    system "make", "install"
   end
 end
 

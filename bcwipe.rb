@@ -1,9 +1,7 @@
-require 'formula'
-
 class Bcwipe < Formula
-  homepage 'http://www.jetico.com/linux/bcwipe-help/'
-  url 'http://www.jetico.com/linux/BCWipe-1.9-9.tar.gz'
-  sha1 'be4d945a5d24076fb6b0356389323a0686e1e4d7'
+  homepage "http://www.jetico.com/linux/bcwipe-help/"
+  url "http://www.jetico.com/linux/BCWipe-1.9-9.tar.gz"
+  sha256 "831f69ae920b27629738ad25228e0c507fa934ce3f75ef10e829b1061299653f"
 
   def install
     system "./configure", "--prefix=#{prefix}"

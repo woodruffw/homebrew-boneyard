@@ -1,15 +1,15 @@
-require 'formula'
+require "formula"
 
 class Hugs98 < Formula
-  homepage 'http://www.haskell.org/hugs/'
-  url 'http://cvs.haskell.org/Hugs/downloads/2006-09/hugs98-plus-Sep2006.tar.gz'
-  version 'plus-Sep2006'
-  sha1 '1464a80c715bc5f786ea5a4e4257b2ff0dc7e1e9'
+  homepage "http://www.haskell.org/hugs/"
+  url "http://cvs.haskell.org/Hugs/downloads/2006-09/hugs98-plus-Sep2006.tar.gz"
+  version "plus-Sep2006"
+  sha1 "1464a80c715bc5f786ea5a4e4257b2ff0dc7e1e9"
 
-  depends_on 'readline'
+  depends_on "readline"
 
   fails_with :clang do
-    cause %[ERROR "../libraries/bootlib/Data/Dynamic.hs" - Module "Main" already loaded]
+    cause %(ERROR "../libraries/bootlib/Data/Dynamic.hs" - Module "Main" already loaded)
   end
 
   patch :p0 do

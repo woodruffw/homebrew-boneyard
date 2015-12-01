@@ -1,9 +1,7 @@
-require 'formula'
-
 class Hllib < Formula
   homepage 'http://nemesis.thewavelength.net/index.php?p=35'
   url 'http://nemesis.thewavelength.net/files/files/hllib242.zip'
-  sha1 '2b2b9900e7cc412c6d36224d469c9a6b0477011f'
+  sha256 "17cf3fee282c97ac8ea4ac0f3541850f30a4ca0188f154c5e5cda033a454cf02"
   version '2.4.2'
 
   def install
@@ -17,14 +15,14 @@ class Hllib < Formula
         # Remove -soname directive
         s.gsub! '-shared -Wl,-soname,libhl.so.2', '-shared -Wl'
         # Ownership isn't needed here
-        s.gsub! %r{ -[og] root}, ''
+        s.gsub! / -[og] root/, ''
         # .dylib is the OS X equivalent of .so
         s.gsub! 'libhl.so.$(HLLIB_VERS)', 'libhl.$(HLLIB_VERS).dylib'
         s.gsub! '$(PREFIX)/lib/libhl.so.2', '$(PREFIX)/lib/libhl.2.dylib'
         s.gsub! '$(PREFIX)/lib/libhl.so', '$(PREFIX)/lib/libhl.dylib'
       end
       # Install
-      system "make install"
+      system "make", "install"
     end
     # Extract tool
     cd 'HLExtract' do

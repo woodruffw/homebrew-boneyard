@@ -1,9 +1,7 @@
-require 'formula'
-
 class Mpio < Formula
-  homepage 'https://github.com/frsyuki/mpio'
-  url 'https://github.com/downloads/frsyuki/mpio/mpio-0.3.7.tar.gz'
-  sha1 '2c75a7ad0d0e00e9463f768fa4b579626bf65096'
+  homepage "https://github.com/frsyuki/mpio"
+  url "https://github.com/downloads/frsyuki/mpio/mpio-0.3.7.tar.gz"
+  sha256 "ff5c1c3fc901290e73556839c0563de8aa29d6179b9f274f21582587e0c7da2a"
 
   fails_with :clang do
     cause <<-EOS.undent
@@ -18,6 +16,6 @@ class Mpio < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end

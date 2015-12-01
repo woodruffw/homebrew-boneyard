@@ -1,13 +1,13 @@
-require 'formula'
+require "formula"
 
 class OMake < Formula
-  url 'http://omake.metaprl.org/downloads/omake-0.9.8.6-0.rc1.tar.gz'
-  homepage 'http://omake.metaprl.org/'
-  sha1 'f714fa992bf391b8bac49a488bc654128962d1cc'
+  url "http://omake.metaprl.org/downloads/omake-0.9.8.6-0.rc1.tar.gz"
+  homepage "http://omake.metaprl.org/"
+  sha1 "f714fa992bf391b8bac49a488bc654128962d1cc"
   version "0.9.8.6"
 
-  depends_on 'readline'
-  depends_on 'objective-caml'
+  depends_on "readline"
+  depends_on "objective-caml"
 
   # skip all warnings that can happen with newer versions of ocamlc. Also,
   # work around a faulty readline detection, see

@@ -1,15 +1,13 @@
-require 'formula'
-
 class Metalua < Formula
-  homepage 'http://metalua.luaforge.net/'
-  url 'https://github.com/fab13n/metalua/archive/0.5-rc2.tar.gz'
-  version '0.5-rc2'
-  sha1 'ee28c801e9673cc11d1cecd0a9fda87e7d21fd6d'
+  homepage "http://metalua.luaforge.net/"
+  url "https://github.com/fab13n/metalua/archive/0.5-rc2.tar.gz"
+  version "0.5-rc2"
+  sha256 "b3ae8202502f50f393c4902638372b602c1f57edbca589cf53e05c0752719e6b"
   revision 1
 
-  head 'https://github.com/fab13n/metalua.git'
+  head "https://github.com/fab13n/metalua.git"
 
-  depends_on 'lua51'
+  depends_on "lua51"
 
   def install
     cd "src" do

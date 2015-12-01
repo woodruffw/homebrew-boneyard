@@ -1,11 +1,9 @@
-require 'formula'
-
 class Libdlna < Formula
-  homepage 'http://libdlna.geexbox.org/'
-  url 'http://libdlna.geexbox.org/releases/libdlna-0.2.4.tar.bz2'
-  sha1 '5e86f4443eeb9e7194c808301efeb78611a9e8b3'
+  homepage "http://libdlna.geexbox.org/"
+  url "http://libdlna.geexbox.org/releases/libdlna-0.2.4.tar.bz2"
+  sha256 "4b2787392ea5ff61c0056bbaa0bb00a2c83d595d20b5658741658cddd17678c5"
 
-  depends_on 'ffmpeg'
+  depends_on "ffmpeg"
 
   # Use dylib instead of soname
   patch :DATA
@@ -13,7 +11,7 @@ class Libdlna < Formula
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
 

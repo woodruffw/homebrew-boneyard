@@ -1,9 +1,7 @@
-require 'formula'
-
 class Justniffer < Formula
-  homepage 'http://justniffer.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/justniffer/justniffer/justniffer%200.5.11/justniffer_0.5.11.tar.gz'
-  sha1 '3f3222361794a6f79f47567753550995c318a037'
+  homepage "http://justniffer.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/justniffer/justniffer/justniffer%200.5.11/justniffer_0.5.11.tar.gz"
+  sha256 "2c0d954bd02cb0590c7f37e768931f97753220e908d974e7e9399481c8f6a923"
 
   depends_on "boost"
 
@@ -31,11 +29,11 @@ class Justniffer < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    require 'open3'
+    require "open3"
     Open3.popen3("#{bin}/justniffer", "--version") do |_, stdout, _|
       assert_match /justniffer #{Regexp.escape(version)}/, stdout.read
     end

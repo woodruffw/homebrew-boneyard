@@ -1,13 +1,11 @@
-require 'formula'
-
 class Gtkglextmm < Formula
-  homepage 'http://projects.gnome.org/gtkglext'
-  url 'https://downloads.sourceforge.net/gtkglext/gtkglextmm-1.2.0.tar.gz'
-  sha1 '5cd489e07517a88262cd6050f723227664e82996'
+  homepage "http://projects.gnome.org/gtkglext"
+  url "https://downloads.sourceforge.net/gtkglext/gtkglextmm-1.2.0.tar.gz"
+  sha256 "8f499c1f95678c56cce908c10bf2c1d0f2267b87e0c480385fa4b128c75bdf7b"
 
-  depends_on 'pkg-config' => :build
-  depends_on 'gtkglext'
-  depends_on 'gtkmm'
+  depends_on "pkg-config" => :build
+  depends_on "gtkglext"
+  depends_on "gtkmm"
   depends_on :x11
 
   # Fixes header include order, using patch from macports: https://trac.macports.org/ticket/27059
@@ -20,6 +18,6 @@ class Gtkglextmm < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
