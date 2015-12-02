@@ -15,7 +15,7 @@ class Hllib < Formula
         # Remove -soname directive
         s.gsub! '-shared -Wl,-soname,libhl.so.2', '-shared -Wl'
         # Ownership isn't needed here
-        s.gsub! / -[og] root/, ''
+        s.gsub! /\ -[og]\ root/, ''
         # .dylib is the OS X equivalent of .so
         s.gsub! 'libhl.so.$(HLLIB_VERS)', 'libhl.$(HLLIB_VERS).dylib'
         s.gsub! '$(PREFIX)/lib/libhl.so.2', '$(PREFIX)/lib/libhl.2.dylib'
