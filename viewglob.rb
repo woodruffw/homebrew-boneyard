@@ -1,5 +1,5 @@
 class Viewglob < Formula
-  desc "A filesystem visualization add-on for Bash and Zsh"
+  desc "Filesystem visualization add-on for Bash and Zsh"
   homepage "http://viewglob.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/viewglob/viewglob/2.0.4/viewglob-2.0.4.tar.gz"
   sha256 "69ef6c62de26b2fad82ddff3fcc72e15ddf7eed7047492218f7c6387c0e7c6f4"
