@@ -5,14 +5,6 @@ class Phash < Formula
   sha256 "3c8258a014f9c2491fb1153010984606805638a45d00498864968a9a30102935"
   revision 1
 
-  bottle do
-    cellar :any
-    revision 2
-    sha256 "04330b396a9e60bf8df72aa9074fe8b1d9cd5a14605c6ea19b3d948155d399f1" => :el_capitan
-    sha256 "6ef0c1a1f65955e55481268c3918df4b74014aedf4607056b6b66a81b233b307" => :yosemite
-    sha256 "58fbfeaabbdcdc588698dd3f5d9d7c7699cfcc66a580ee0bd925d9b804e9fad7" => :mavericks
-  end
-
   option "without-image-hash", "Disable image hash"
   option "without-video-hash", "Disable video hash"
   option "without-audio-hash", "Disable audio hash"
