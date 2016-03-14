@@ -4,11 +4,6 @@ class Libodbcxx < Formula
   url "https://downloads.sourceforge.net/project/libodbcxx/libodbc++/0.2.5/libodbc++-0.2.5.tar.gz"
   sha256 "0731a475b4693514e6a99121441a40305df3fe1dce3756df20c7b6758aa53b57"
 
-  bottle do
-    cellar :any
-    sha256 "72f4f3330afd79df2346134fa5f28183d5fe3134c65d90395e20cada497d4ca7" => :mountain_lion
-  end
-
   depends_on "unixodbc"
 
   # Two patches are included:
