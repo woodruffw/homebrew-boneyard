@@ -6,14 +6,6 @@ class Tegh < Formula
 
   head "https://github.com/D1plo1d/tegh.git", :branch => "develop"
 
-  bottle do
-    cellar :any
-    revision 1
-    sha256 "6bba8517593f8aab0b7c6d17639299ac83657374469159797bf23283a5542718" => :el_capitan
-    sha256 "85ea2f8a5348a8dc5fa69432bdb2de26c4192ce54f12168d18ba502059e93fd5" => :yosemite
-    sha256 "041d0a30a9a5fc4d4d3a54fc7bb0b401888064a241e638f87c8d528f7cd38b62" => :mavericks
-  end
-
   depends_on "node"
 
   def install
