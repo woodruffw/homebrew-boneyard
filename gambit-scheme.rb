@@ -4,12 +4,6 @@ class GambitScheme < Formula
   url "https://www.iro.umontreal.ca/~gambit/download/gambit/v4.8/source/gambit-v4_8_4.tgz"
   sha256 "b3153649440bde0f613c09b5038e2cc887784277e078cdea3e6703e4a582a0bf"
 
-  bottle do
-    sha256 "9a71e8cff4ec71eedeebbe5fd7aaa44def0c59674f31aee5aa0cfee8542f3315" => :el_capitan
-    sha256 "6c1c2cd0f268d2888c3827b7296c560bdaafb095a25bb360e288ebf9eb22975d" => :yosemite
-    sha256 "d2bf0e670cf92cfb968b77aaba4c8d543f9d81fcf15f70a1aa838ef7c4cd4abc" => :mavericks
-  end
-
   conflicts_with "ghostscript", :because => "both install `gsc` binaries"
   conflicts_with "scheme48", :because => "both install `scheme-r5rs` binaries"
 
