@@ -5,13 +5,6 @@ class Ffts < Formula
   sha256 "6362e498e5aa241661cfe9060153076b78e300a5d3c365997ba6ac2f637df3ff"
   head "https://github.com/anthonix/ffts.git"
 
-  bottle do
-    cellar :any
-    sha256 "1f5247eaac6427f34ac4ad8155fd29841d4adea671f21b264c679d2adbdb22ef" => :yosemite
-    sha256 "f22fd4ecf695fe69df9177f68e2d880fcdc5c37201ded5d29c39760de3b787db" => :mavericks
-    sha256 "9057a22063635a12c8645f1a63f282d548df2dabd9e67114f3036e2a43cf2836" => :mountain_lion
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
