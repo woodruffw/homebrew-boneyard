@@ -6,8 +6,8 @@ class Tinyscheme < Formula
 
   # Modify compile flags for Mac OS X per instructions
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2f905ea0/tinyscheme/patch-makefile.diff"
-    sha256 "a50147cf63c5d5bd3f3d6ce84cd5f4d2d06f55222dc2a9a17b6da7d9893e0586"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2771d17/tinyscheme/patch-makefile.diff"
+    sha256 "7833c190bb5527e18ea86c43ba26f6d26ff226334c0dd467988534c171890df0"
   end
 
   def install
